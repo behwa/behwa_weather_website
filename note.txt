@@ -1,0 +1,24 @@
+npm init -y
+npm i express
+
+video 47
+npm install hbs --save
+node src/app.js  (important special)
+
+video 49
+nodemon src/app.js -e js,hbs
+
+video 54
+
+?search=games&rating=5
+
+video 55
+
+npm i request
+
+localhost:8080/weaather?address="Singapore"
+
+57 Browser HTTP request with fetch
+HTTP is the browser api
+
+puzzle.mead.io/puzzle
