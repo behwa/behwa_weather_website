@@ -1,4 +1,6 @@
+const mainApp = require('../../src/prodConfig.js')
 console.log('Client side javascript file is loaded!')
+
 
 // aysrchronize
 //then as a promises
@@ -30,6 +32,9 @@ const messageTwo = document.querySelector('#message-2')
 messageOne.textContent = 'From javascript'
 // messageTwo.textContent = ''
 
+
+var urlFront = true ? "" : "http://localhost:8080"
+
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault() //allow server render the page, prevent refresh
     const location = search.value
@@ -37,7 +42,7 @@ weatherForm.addEventListener('submit', (e) => {
     messageOne.textContent = 'Loading...'
     messageTwo.textContent = ''
 
-    fetch('http://localhost:8080/weather?address=%22' + location + '%22').then((respone) => {
+    fetch(urlFront + '/weather?address=%22' + location + '%22').then((respone) => {
         respone.json().then((data) => {
             if (data.error) {
                 messageOne.textContent = data.error

@@ -3,6 +3,7 @@ const path = require('path')
 const express = require('express'),
       app = express()
 const hbs = require('hbs')
+const isProduction = require('./prodConfig.js')
 
 // const geocode = require('./utils/geocodeAPI')
 // const forecast = require('./utils/forecastAPI')
@@ -25,6 +26,7 @@ hbs.registerPartials(partialsPath)
 
 // Setup static directory to server
 app.use(express.static(publicDirectoryPath))
+
 
 app.get('', (req, res) => {
     res.render('index', {
@@ -94,7 +96,14 @@ app.get('*', (req, res) => {
 })
 
 
-const port = 8080;
-app.listen(port, () => {
-    console.log("Port running on " + port)
-})
+const port = process.env.PORT || 8080;
+
+if(isProduction){
+    app.listen(process.env.PORT, process.env.IP, () =>{
+        console.log("YelpCamp Server Has Started!")
+    })
+} else {
+    app.listen(port, () => {
+        console.log("Port running on " + port)
+    })
+}
