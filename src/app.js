@@ -104,6 +104,6 @@ if(isProduction){
     })
 } else {
     app.listen(port, () => {
-        console.log("Port running on " + port)
+        console.log("Port running on 8080")
     })
 }
